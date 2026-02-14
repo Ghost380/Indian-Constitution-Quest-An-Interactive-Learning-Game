@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Indian Constitution Quest - Learn Through Play</title>
+    <title>The Constitution Keeper - A Time-Travel Adventure</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -14,18 +14,19 @@
         }
         
         :root {
-            --primary: #FF9933; /* Saffron */
-            --secondary: #138808; /* Green */
-            --accent: #000080; /* Navy Blue */
+            --primary: #FF9933;
+            --secondary: #138808;
+            --accent: #000080;
             --light: #F8F9FA;
             --dark: #212529;
             --correct: #4CAF50;
             --incorrect: #F44336;
+            --story-bg: #f9f3e7;
         }
         
         body {
-            background-color: #f5f1e8;
-            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ff9933' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+            background-color: #0a0f1e;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100"><circle cx="10" cy="10" r="1" fill="%23ffffff20"/><circle cx="90" cy="30" r="1" fill="%23ffffff20"/><circle cx="40" cy="80" r="1" fill="%23ffffff20"/><circle cx="70" cy="70" r="1" fill="%23ffffff20"/><circle cx="20" cy="50" r="1" fill="%23ffffff20"/></svg>');
             color: var(--dark);
             min-height: 100vh;
             padding: 20px;
@@ -41,9 +42,10 @@
             padding: 20px 0 30px;
             border-bottom: 3px solid var(--primary);
             margin-bottom: 30px;
-            background-color: white;
+            background: linear-gradient(135deg, #1a1f2f 0%, #2a2f3f 100%);
             border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            color: white;
         }
         
         .logo {
@@ -55,18 +57,18 @@
         }
         
         .logo-icon {
-            color: var(--accent);
+            color: var(--primary);
             font-size: 2.8rem;
         }
         
         h1 {
-            color: var(--accent);
+            color: white;
             font-size: 2.5rem;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
         
         .tagline {
-            color: var(--secondary);
+            color: var(--primary);
             font-size: 1.3rem;
             font-weight: 600;
             margin-top: 5px;
@@ -86,17 +88,20 @@
         }
         
         .main-panel {
-            background-color: white;
+            background-color: var(--story-bg);
             border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
             overflow: hidden;
+            border: 1px solid var(--primary);
         }
         
         .sidebar {
-            background-color: white;
+            background-color: #1e2533;
             border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
             padding: 25px;
+            color: #ddd;
+            border: 1px solid var(--accent);
         }
         
         .game-header {
@@ -111,6 +116,9 @@
         .game-title {
             font-size: 1.8rem;
             font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
         
         .game-stats {
@@ -139,6 +147,8 @@
             min-height: 500px;
             display: flex;
             flex-direction: column;
+            background: #fef9e7;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M10 10 L90 10 L90 90 L10 90 Z" fill="none" stroke="%23ff993330" stroke-width="1"/></svg>');
         }
         
         /* Game States */
@@ -178,7 +188,7 @@
             font-size: 1.1rem;
             line-height: 1.6;
             margin-bottom: 30px;
-            color: #555;
+            color: #444;
             max-width: 700px;
             margin-left: auto;
             margin-right: auto;
@@ -198,54 +208,66 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 128, 0.2);
+            box-shadow: 0 4px 8px rgba(0,0,128,0.3);
         }
         
         .btn:hover {
             background-color: var(--primary);
             transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(255, 153, 51, 0.3);
+            box-shadow: 0 6px 12px rgba(255,153,51,0.4);
         }
         
         .btn i {
             font-size: 1.2rem;
         }
         
-        /* Game Play Screen */
-        .game-play {
+        /* Story Chapter Screen */
+        .story-screen {
             height: 100%;
         }
         
-        .question-container {
-            margin-bottom: 30px;
-            flex-grow: 1;
+        .chapter-badge {
+            background-color: var(--accent);
+            color: white;
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
         }
         
-        .question-number {
-            color: var(--primary);
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-        
-        .question-text {
-            font-size: 1.8rem;
-            font-weight: 600;
-            margin-bottom: 25px;
-            line-height: 1.4;
+        .chapter-title {
+            font-size: 2.2rem;
             color: var(--accent);
+            margin-bottom: 10px;
+            font-weight: 700;
+            border-left: 5px solid var(--primary);
+            padding-left: 15px;
         }
         
-        .options-container {
+        .story-text {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            color: #333;
+            background: rgba(255,255,255,0.7);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        .choices-container {
             display: grid;
             grid-template-columns: 1fr;
             gap: 15px;
             margin-bottom: 30px;
         }
         
-        .option {
+        .choice {
             padding: 18px 20px;
-            border: 2px solid #e0e0e0;
+            border: 2px solid #d0b090;
             border-radius: 10px;
             font-size: 1.1rem;
             cursor: pointer;
@@ -253,38 +275,30 @@
             display: flex;
             align-items: center;
             gap: 15px;
+            background: #fff8e7;
         }
         
-        .option:hover {
+        .choice:hover {
             border-color: var(--accent);
-            background-color: rgba(0, 0, 128, 0.03);
+            background-color: #e6e9ff;
         }
         
-        .option.selected {
+        .choice.selected {
             border-color: var(--primary);
-            background-color: rgba(255, 153, 51, 0.1);
+            background-color: #fff1d6;
+            box-shadow: 0 0 0 2px rgba(255,153,51,0.3);
         }
         
-        .option.correct {
-            border-color: var(--correct);
-            background-color: rgba(76, 175, 80, 0.1);
-        }
-        
-        .option.incorrect {
-            border-color: var(--incorrect);
-            background-color: rgba(244, 67, 54, 0.1);
-        }
-        
-        .option-letter {
+        .choice-letter {
             width: 40px;
             height: 40px;
-            background-color: #f0f0f0;
+            background-color: var(--accent);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 700;
-            color: var(--accent);
+            color: white;
             flex-shrink: 0;
         }
         
@@ -302,61 +316,56 @@
             background-color: #5a6268;
         }
         
-        .btn-success {
-            background-color: var(--correct);
-        }
-        
-        .btn-success:hover {
-            background-color: #3d8b40;
-        }
-        
-        /* Feedback Screen */
-        .feedback-screen {
+        /* Outcome Screen */
+        .outcome-screen {
             text-align: center;
             padding: 30px 20px;
         }
         
-        .feedback-icon {
+        .outcome-icon {
             font-size: 4rem;
             margin-bottom: 20px;
         }
         
-        .correct-answer .feedback-icon {
+        .positive-outcome .outcome-icon {
             color: var(--correct);
         }
         
-        .incorrect-answer .feedback-icon {
+        .negative-outcome .outcome-icon {
             color: var(--incorrect);
         }
         
-        .feedback-title {
+        .outcome-title {
             font-size: 2rem;
             margin-bottom: 15px;
         }
         
-        .correct-answer .feedback-title {
+        .positive-outcome .outcome-title {
             color: var(--correct);
         }
         
-        .incorrect-answer .feedback-title {
+        .negative-outcome .outcome-title {
             color: var(--incorrect);
         }
         
-        .explanation {
+        .constitutional-lesson {
             font-size: 1.2rem;
             line-height: 1.6;
             margin-bottom: 30px;
-            background-color: #f8f9fa;
+            background-color: #fff8e7;
             padding: 20px;
             border-radius: 10px;
             text-align: left;
+            border-left: 5px solid var(--accent);
         }
         
-        .highlight {
-            background-color: rgba(255, 153, 51, 0.2);
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-weight: 600;
+        .lesson-label {
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
         
         /* Results Screen */
@@ -384,7 +393,17 @@
             color: #555;
         }
         
-        .constitution-badge {
+        .story-epilogue {
+            background-color: #fff8e7;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: left;
+            font-style: italic;
+            border-left: 5px solid var(--primary);
+        }
+        
+        .badge {
             display: inline-block;
             background: linear-gradient(to right, var(--primary), var(--secondary), var(--accent));
             color: white;
@@ -397,47 +416,65 @@
         
         /* Sidebar Styles */
         .sidebar-title {
-            color: var(--accent);
+            color: var(--primary);
             font-size: 1.5rem;
             margin-bottom: 20px;
             padding-bottom: 10px;
-            border-bottom: 2px solid var(--primary);
+            border-bottom: 2px solid var(--secondary);
         }
         
-        .progress-container {
+        .timeline {
             margin-bottom: 30px;
+            position: relative;
         }
         
-        .progress-label {
+        .timeline-item {
             display: flex;
-            justify-content: space-between;
-            margin-bottom: 8px;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #334;
         }
         
-        .progress-bar {
-            height: 12px;
-            background-color: #e0e0e0;
-            border-radius: 6px;
-            overflow: hidden;
+        .timeline-dot {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #555;
+            margin-right: 15px;
+            transition: background-color 0.3s;
         }
         
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            width: 0%;
-            transition: width 0.5s ease;
+        .timeline-dot.completed {
+            background-color: var(--secondary);
+            box-shadow: 0 0 10px var(--secondary);
+        }
+        
+        .timeline-dot.current {
+            background-color: var(--primary);
+            box-shadow: 0 0 10px var(--primary);
+        }
+        
+        .timeline-text {
+            flex-grow: 1;
+            color: #ccc;
+        }
+        
+        .timeline-year {
+            font-weight: 700;
+            color: var(--primary);
         }
         
         .constitution-fact {
-            background-color: #f8f9fa;
+            background-color: #2a2f3f;
             padding: 20px;
             border-radius: 10px;
-            border-left: 5px solid var(--accent);
+            border-left: 5px solid var(--secondary);
             margin-bottom: 20px;
+            color: #ddd;
         }
         
         .fact-title {
-            color: var(--accent);
+            color: var(--primary);
             font-weight: 600;
             margin-bottom: 10px;
             display: flex;
@@ -445,54 +482,37 @@
             gap: 10px;
         }
         
-        .fact-text {
-            line-height: 1.5;
-            color: #555;
-        }
-        
-        .learning-tracker {
+        .legacy-meter {
             margin-top: 30px;
         }
         
-        .tracker-item {
+        .legacy-label {
             display: flex;
-            align-items: center;
-            padding: 12px 0;
-            border-bottom: 1px solid #eee;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            color: #aaa;
         }
         
-        .tracker-item:last-child {
-            border-bottom: none;
+        .legacy-bar {
+            height: 12px;
+            background-color: #334;
+            border-radius: 6px;
+            overflow: hidden;
         }
         
-        .tracker-icon {
-            width: 40px;
-            height: 40px;
-            background-color: rgba(0, 0, 128, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 15px;
-            color: var(--accent);
-        }
-        
-        .tracker-text {
-            flex-grow: 1;
-            text-align: left;
-        }
-        
-        .tracker-status {
-            color: var(--secondary);
-            font-weight: 600;
+        .legacy-fill {
+            height: 100%;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            width: 0%;
+            transition: width 0.5s ease;
         }
         
         footer {
             text-align: center;
             padding: 20px;
-            color: #666;
+            color: #aaa;
             font-size: 0.9rem;
-            border-top: 1px solid #ddd;
+            border-top: 1px solid #334;
             margin-top: 20px;
         }
         
@@ -503,19 +523,7 @@
             margin-top: 10px;
         }
         
-        /* Sound icons for optional audio */
-        .sound-toggle {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: none;
-            border: none;
-            color: var(--accent);
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-        
-        /* Accessibility improvements */
+        /* Accessibility */
         .sr-only {
             position: absolute;
             width: 1px;
@@ -523,13 +531,9 @@
             padding: 0;
             margin: -1px;
             overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border: 0;
         }
         
-        /* Focus states for keyboard navigation */
-        .btn:focus, .option:focus {
+        .btn:focus, .choice:focus {
             outline: 2px solid var(--primary);
             outline-offset: 2px;
         }
@@ -539,616 +543,596 @@
     <div class="container">
         <header>
             <div class="logo">
-                <i class="fas fa-balance-scale logo-icon"></i>
-                <h1>Indian Constitution Quest</h1>
+                <i class="fas fa-hourglass-half logo-icon"></i>
+                <h1>The Constitution Keeper</h1>
             </div>
-            <div class="tagline">Learn Constitutional Values Through Interactive Gameplay</div>
+            <div class="tagline">A Time-Travel Adventure Through India's Constitutional History</div>
         </header>
         
         <div class="game-container">
             <div class="main-panel">
                 <div class="game-header">
-                    <div class="game-title">Constitutional Challenge</div>
+                    <div class="game-title">
+                        <i class="fas fa-scroll"></i> Chapter <span id="chapter-number">0</span>
+                    </div>
                     <div class="game-stats">
                         <div class="stat">
-                            <div class="stat-value" id="score-value">0</div>
-                            <div class="stat-label">Score</div>
+                            <div class="stat-value" id="legacy-score">0</div>
+                            <div class="stat-label">Legacy</div>
                         </div>
                         <div class="stat">
-                            <div class="stat-value" id="level-value">1</div>
-                            <div class="stat-label">Level</div>
-                        </div>
-                        <div class="stat">
-                            <div class="stat-value" id="lives-value">3</div>
-                            <div class="stat-label">Lives</div>
+                            <div class="stat-value" id="integrity-value">100</div>
+                            <div class="stat-label">Integrity</div>
                         </div>
                     </div>
                 </div>
                 
                 <div class="game-content">
-                    <!-- Start Screen -->
+                    <!-- Start Screen (Prologue) -->
                     <div class="game-state start-screen active" id="start-screen">
-                        <i class="fas fa-gavel start-icon"></i>
-                        <h2>Welcome to Constitution Quest!</h2>
-                        <p>Embark on an exciting journey through the Indian Constitution. Test your knowledge, learn about fundamental rights, directive principles, and the structure of the world's longest written constitution. Answer questions correctly to earn points and unlock constitutional badges!</p>
-                        <p>This interactive game will help you understand the core values and principles that form the foundation of India's democracy.</p>
+                        <i class="fas fa-clock start-icon"></i>
+                        <h2>The Time Council Needs You</h2>
+                        <div style="text-align: left; max-width: 700px; margin: 0 auto 30px; background: #f0e6d8; padding: 25px; border-radius: 10px;">
+                            <p style="margin-bottom: 15px;"><strong>Year 2147, Time Council Headquarters</strong></p>
+                            <p style="margin-bottom: 15px;">A rogue agent has fractured the timeline, threatening to erase the Indian Constitution's core values. You are a Constitution Keeper, sworn to protect the principles of justice, liberty, equality, and fraternity.</p>
+                            <p style="margin-bottom: 15px;">Your mission: Travel to pivotal moments in constitutional history, make choices that uphold the Constitution's spirit, and restore the timeline. Your decisions will shape India's future.</p>
+                            <p><i class="fas fa-exclamation-triangle" style="color: var(--primary);"></i> Beware: each choice affects your Legacy and Integrity. Protect both to succeed.</p>
+                        </div>
                         <button class="btn" id="start-btn">
-                            <i class="fas fa-play-circle"></i> Start the Quest
+                            <i class="fas fa-play-circle"></i> Begin Your Journey
                         </button>
                     </div>
                     
-                    <!-- Game Play Screen -->
-                    <div class="game-state game-play" id="game-play">
-                        <div class="question-container">
-                            <div class="question-number" id="question-number">Question 1 of 10</div>
-                            <div class="question-text" id="question-text">Which article of the Indian Constitution abolishes untouchability?</div>
-                            <div class="options-container" id="options-container">
-                                <!-- Options will be dynamically inserted here -->
-                            </div>
+                    <!-- Story Chapter Screen -->
+                    <div class="game-state story-screen" id="story-screen">
+                        <div class="chapter-badge" id="chapter-badge">1946 | Constituent Assembly</div>
+                        <h2 class="chapter-title" id="chapter-title">The Birth of Fundamental Rights</h2>
+                        <div class="story-text" id="story-text">
+                            You arrive in December 1946. The Constituent Assembly is debating the inclusion of Fundamental Rights. Some members argue they are unnecessary; others insist they are the soul of the Constitution. The future of millions hangs on this decision.
+                        </div>
+                        <div class="choices-container" id="choices-container">
+                            <!-- Choices will be dynamically inserted -->
                         </div>
                         <div class="action-buttons">
-                            <button class="btn btn-secondary" id="hint-btn">
-                                <i class="fas fa-lightbulb"></i> Get Hint
+                            <button class="btn btn-secondary" id="council-hint-btn">
+                                <i class="fas fa-brain"></i> Consult Time Council
                             </button>
-                            <button class="btn" id="submit-btn" disabled>
-                                <i class="fas fa-check-circle"></i> Submit Answer
+                            <button class="btn" id="make-choice-btn" disabled>
+                                <i class="fas fa-check-double"></i> Make Decision
                             </button>
                         </div>
                     </div>
                     
-                    <!-- Feedback Screen -->
-                    <div class="game-state feedback-screen" id="feedback-screen">
-                        <!-- Content will be dynamically inserted -->
+                    <!-- Outcome Screen -->
+                    <div class="game-state outcome-screen" id="outcome-screen">
+                        <!-- Content dynamically inserted -->
                     </div>
                     
-                    <!-- Results Screen -->
+                    <!-- Final Results Screen (Epilogue) -->
                     <div class="game-state results-screen" id="results-screen">
-                        <!-- Content will be dynamically inserted -->
+                        <!-- Content dynamically inserted -->
                     </div>
                 </div>
             </div>
             
             <div class="sidebar">
-                <h3 class="sidebar-title">Your Progress</h3>
+                <h3 class="sidebar-title">Your Journey</h3>
                 
-                <div class="progress-container">
-                    <div class="progress-label">
-                        <span>Constitution Mastery</span>
-                        <span id="progress-percent">0%</span>
+                <div class="timeline" id="timeline">
+                    <div class="timeline-item" data-chapter="0">
+                        <div class="timeline-dot" id="dot-0"></div>
+                        <div class="timeline-text"><span class="timeline-year">1946</span> Constituent Assembly</div>
                     </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" id="progress-fill"></div>
+                    <div class="timeline-item" data-chapter="1">
+                        <div class="timeline-dot" id="dot-1"></div>
+                        <div class="timeline-text"><span class="timeline-year">1950</span> Republic Dawn</div>
+                    </div>
+                    <div class="timeline-item" data-chapter="2">
+                        <div class="timeline-dot" id="dot-2"></div>
+                        <div class="timeline-text"><span class="timeline-year">1975</span> Emergency</div>
+                    </div>
+                    <div class="timeline-item" data-chapter="3">
+                        <div class="timeline-dot" id="dot-3"></div>
+                        <div class="timeline-text"><span class="timeline-year">1992</span> Mandal Commission</div>
+                    </div>
+                    <div class="timeline-item" data-chapter="4">
+                        <div class="timeline-dot" id="dot-4"></div>
+                        <div class="timeline-text"><span class="timeline-year">2002</span> Education for All</div>
+                    </div>
+                    <div class="timeline-item" data-chapter="5">
+                        <div class="timeline-dot" id="dot-5"></div>
+                        <div class="timeline-text"><span class="timeline-year">2019</span> Citizenship Debate</div>
                     </div>
                 </div>
                 
                 <div class="constitution-fact">
                     <div class="fact-title">
-                        <i class="fas fa-info-circle"></i> Did You Know?
+                        <i class="fas fa-gem"></i> Constitutional Gem
                     </div>
-                    <div class="fact-text" id="fact-text">The Indian Constitution is the longest written constitution of any sovereign country in the world, containing 448 articles in 25 parts, 12 schedules, and 104 amendments.</div>
+                    <div class="fact-text" id="fact-text">The Preamble was amended only once in 1976 to add the words "Socialist", "Secular", and "Integrity".</div>
                 </div>
                 
-                <h3 class="sidebar-title">Learning Tracker</h3>
-                <div class="learning-tracker">
-                    <div class="tracker-item">
-                        <div class="tracker-icon">
-                            <i class="fas fa-book"></i>
-                        </div>
-                        <div class="tracker-text">Fundamental Rights</div>
-                        <div class="tracker-status" id="tracker-rights">0/5</div>
+                <div class="legacy-meter">
+                    <div class="legacy-label">
+                        <span>Legacy Progress</span>
+                        <span id="legacy-percent">0%</span>
                     </div>
-                    <div class="tracker-item">
-                        <div class="tracker-icon">
-                            <i class="fas fa-landmark"></i>
-                        </div>
-                        <div class="tracker-text">Government Structure</div>
-                        <div class="tracker-status" id="tracker-govt">0/3</div>
+                    <div class="legacy-bar">
+                        <div class="legacy-fill" id="legacy-fill"></div>
                     </div>
-                    <div class="tracker-item">
-                        <div class="tracker-icon">
-                            <i class="fas fa-scale-balanced"></i>
-                        </div>
-                        <div class="tracker-text">Directive Principles</div>
-                        <div class="tracker-status" id="tracker-principles">0/4</div>
-                    </div>
-                    <div class="tracker-item">
-                        <div class="tracker-icon">
-                            <i class="fas fa-history"></i>
-                        </div>
-                        <div class="tracker-text">Constitutional History</div>
-                        <div class="tracker-status" id="tracker-history">0/3</div>
-                    </div>
+                </div>
+                
+                <div style="margin-top: 20px; font-size: 0.9rem; color: #888;">
+                    <i class="fas fa-shield-alt"></i> Integrity: Constitutional values you uphold
                 </div>
             </div>
         </div>
         
         <footer>
-            <p>Indian Constitution Quest - An Interactive Educational Game | Designed for Learning Constitutional Values</p>
-            <p>This game is a prototype for educational purposes only. All constitutional information is based on the actual Constitution of India.</p>
+            <p>The Constitution Keeper - An Interactive Story Game | Learn the Constitution Through Choices</p>
             <div class="tricolor"></div>
         </footer>
     </div>
 
     <script>
-        // Game data - questions and answers
-        const gameData = [
+        // Story data: chapters with scenarios and choices
+        const storyChapters = [
             {
-                category: "Fundamental Rights",
-                question: "Which article of the Indian Constitution abolishes untouchability?",
-                options: [
-                    "Article 14",
-                    "Article 17",
-                    "Article 21",
-                    "Article 32"
-                ],
-                correctAnswer: 1,
-                explanation: "Article 17 of the Indian Constitution abolishes untouchability and forbids its practice in any form. The enforcement of any disability arising out of untouchability shall be an offense punishable in accordance with law.",
-                fact: "Article 17 is one of the few constitutional provisions that are self-executing, meaning it doesn't require legislation to be enforced."
+                year: "1946",
+                title: "The Birth of Fundamental Rights",
+                story: "You arrive in December 1946. The Constituent Assembly is debating the inclusion of Fundamental Rights. Some members argue they are unnecessary; others insist they are the soul of the Constitution. The future of millions hangs on this decision.",
+                choices: [
+                    {
+                        text: "Support the inclusion of a comprehensive list of Fundamental Rights, enforceable by courts.",
+                        outcome: "Excellent choice! The Assembly adopts Fundamental Rights, later becoming Part III of the Constitution. Citizens gain protection against state oppression.",
+                        lesson: "Fundamental Rights (Articles 12-35) are justiciable, meaning citizens can approach courts if these rights are violated. They form the bedrock of Indian democracy.",
+                        effect: { legacy: 30, integrity: 10 }
+                    },
+                    {
+                        text: "Suggest that Directive Principles are enough; rights can be added later if needed.",
+                        outcome: "The Assembly agrees to postpone. Without enforceable rights, early governments face protests and instability. You've weakened the Constitution's moral authority.",
+                        lesson: "Fundamental Rights provide immediate legal protection, while Directive Principles are goals. Both are essential, but rights are enforceable.",
+                        effect: { legacy: 5, integrity: -15 }
+                    },
+                    {
+                        text: "Propose a middle path: include a few basic rights but leave details to future legislatures.",
+                        outcome: "Some rights are included, but ambiguity leads to years of litigation. The Constitution lacks clarity on key freedoms.",
+                        lesson: "Clear, well-defined rights prevent confusion and ensure stronger safeguards. The framers wisely chose detail over vagueness.",
+                        effect: { legacy: 15, integrity: -5 }
+                    }
+                ]
             },
             {
-                category: "Government Structure",
-                question: "Who is the head of the Indian State according to the Constitution?",
-                options: [
-                    "The Prime Minister",
-                    "The President",
-                    "The Chief Justice",
-                    "The Speaker of Lok Sabha"
-                ],
-                correctAnswer: 1,
-                explanation: "According to Article 52 of the Constitution, there shall be a President of India who is the head of the Indian State. The President is the first citizen of India and acts as the symbol of unity, integrity, and solidarity of the nation.",
-                fact: "The President of India is elected by an electoral college consisting of elected members of both houses of Parliament and elected members of the Legislative Assemblies of States and Union Territories."
+                year: "1950",
+                title: "The Republic Dawn",
+                story: "It's January 26, 1950. India becomes a republic. In a village, you witness upper-caste individuals preventing Dalits from entering a temple. As a Constitution Keeper, how do you respond?",
+                choices: [
+                    {
+                        text: "Invoke Article 17 (abolition of untouchability) and ensure the Dalits' right to enter the temple is upheld.",
+                        outcome: "You stand firm on constitutional principles. The villagers learn that untouchability is illegal, and over time, social barriers begin to crumble.",
+                        lesson: "Article 17 abolishes untouchability and forbids its practice in any form. It's a revolutionary provision that promotes social equality.",
+                        effect: { legacy: 25, integrity: 15 }
+                    },
+                    {
+                        text: "Advise patience; social change takes time. Suggest they worship at home to avoid conflict.",
+                        outcome: "The discrimination continues unchecked. Years later, the community remains divided. You've compromised on constitutional morality.",
+                        lesson: "The Constitution expects the State and citizens to actively eradicate untouchability, not just wait for change.",
+                        effect: { legacy: 0, integrity: -20 }
+                    },
+                    {
+                        text: "Organize a peaceful protest and file a petition in court under Article 32.",
+                        outcome: "The court rules in favor of temple entry, setting a precedent. Your action empowers marginalized communities across India.",
+                        lesson: "Article 32 guarantees the right to move the Supreme Court for enforcement of Fundamental Rights. Dr. Ambedkar called it the 'heart and soul' of the Constitution.",
+                        effect: { legacy: 35, integrity: 10 }
+                    }
+                ]
             },
             {
-                category: "Fundamental Rights",
-                question: "Which article guarantees the Right to Equality before the law?",
-                options: [
-                    "Article 15",
-                    "Article 19",
-                    "Article 14",
-                    "Article 21"
-                ],
-                correctAnswer: 2,
-                explanation: "Article 14 states that 'The State shall not deny to any person equality before the law or the equal protection of the laws within the territory of India.' This is the cornerstone of the Right to Equality.",
-                fact: "Article 14 permits classification but prohibits class legislation. The classification must be reasonable and based on intelligible differential."
+                year: "1975",
+                title: "The Emergency",
+                story: "June 1975. Prime Minister Indira Gandhi has declared a state of emergency. Civil liberties are suspended, and opposition leaders are jailed. You are approached by activists seeking your help. What do you do?",
+                choices: [
+                    {
+                        text: "Support the emergency as necessary for national stability; advise activists to comply.",
+                        outcome: "The emergency lasts 21 months, and democracy is weakened. Many innocent people suffer. Your legacy suffers.",
+                        lesson: "The Constitution allows emergency provisions but also safeguards fundamental freedoms. The 44th Amendment later ensured that fundamental rights under Articles 20 and 21 cannot be suspended even during emergency.",
+                        effect: { legacy: -20, integrity: -30 }
+                    },
+                    {
+                        text: "Quietly help activists by providing legal aid and highlighting abuses through underground networks.",
+                        outcome: "Your covert efforts protect some activists. After the emergency ends, you're hailed as a defender of liberty, but your integrity takes a hit due to secrecy.",
+                        lesson: "The right to life and personal liberty (Article 21) is inviolable. Even during emergency, some rights remain.",
+                        effect: { legacy: 20, integrity: -10 }
+                    },
+                    {
+                        text: "Openly challenge the emergency by filing habeas corpus petitions and organizing public meetings.",
+                        outcome: "You face arrest, but your courage inspires others. The Supreme Court later rules that habeas corpus cannot be suspended. Your integrity soars.",
+                        lesson: "The famous ADM Jabalpur case (1976) initially upheld suspension, but later judgments restored the primacy of liberty. The Constitution's spirit prevailed.",
+                        effect: { legacy: 40, integrity: 20 }
+                    }
+                ]
             },
             {
-                category: "Directive Principles",
-                question: "Which article of the Constitution contains the Directive Principle about promoting cottage industries?",
-                options: [
-                    "Article 43",
-                    "Article 45",
-                    "Article 48",
-                    "Article 51"
-                ],
-                correctAnswer: 0,
-                explanation: "Article 43 states that the State shall endeavor to promote cottage industries on an individual or cooperative basis in rural areas. This is part of the Directive Principles of State Policy.",
-                fact: "Directive Principles are not enforceable by any court, but they are fundamental in the governance of the country and it's the duty of the State to apply these principles in making laws."
+                year: "1992",
+                title: "The Mandal Commission",
+                story: "The government has implemented 27% reservation for OBCs in public employment. Protests erupt across the country. Students argue it's against merit. As a neutral observer, you must advise the Prime Minister.",
+                choices: [
+                    {
+                        text: "Support the reservation, citing Article 16(4) which allows the state to make provisions for backward classes.",
+                        outcome: "Reservations are implemented, increasing OBC representation. Some merit concerns remain, but social justice advances.",
+                        lesson: "Article 16(4) empowers the state to reserve appointments for backward classes. The Supreme Court upheld 27% reservation in Indra Sawhney case (1992), but added a 'creamy layer' exclusion.",
+                        effect: { legacy: 30, integrity: 15 }
+                    },
+                    {
+                        text: "Oppose reservation, arguing that merit should be the sole criterion for government jobs.",
+                        outcome: "The policy is diluted. OBCs continue to be underrepresented, and social inequality persists. Your decision favors the privileged.",
+                        lesson: "Equality of opportunity (Article 16) includes substantive equality, not just formal equality. Reservations address historical discrimination.",
+                        effect: { legacy: -10, integrity: -20 }
+                    },
+                    {
+                        text: "Suggest a compromise: reservation with income-based exclusion (creamy layer) and better educational opportunities.",
+                        outcome: "Your balanced approach is accepted. Reservations continue but with safeguards, and more OBC students enter higher education.",
+                        lesson: "The Supreme Court later introduced the creamy layer concept to ensure reservations benefit the truly disadvantaged.",
+                        effect: { legacy: 25, integrity: 10 }
+                    }
+                ]
             },
             {
-                category: "Constitutional History",
-                question: "When was the Constitution of India adopted by the Constituent Assembly?",
-                options: [
-                    "15 August 1947",
-                    "26 January 1950",
-                    "26 November 1949",
-                    "26 November 1950"
-                ],
-                correctAnswer: 2,
-                explanation: "The Constitution was adopted by the Constituent Assembly on 26 November 1949. It came into effect on 26 January 1950, which is celebrated as Republic Day.",
-                fact: "The original Constitution of India was handwritten by Prem Behari Narain Raizada in a flowing italic style with beautiful calligraphy. Each page was decorated by artists from Shantiniketan."
+                year: "2002",
+                title: "Education for All",
+                story: "Parliament is debating the 86th Amendment, which seeks to make education a fundamental right for children aged 6-14. Lobbyists argue it's too expensive; activists say it's essential. Your voice matters.",
+                choices: [
+                    {
+                        text: "Strongly support the amendment; education is the foundation of democracy.",
+                        outcome: "Article 21A is inserted, guaranteeing free and compulsory education. Millions of children gain hope. Your legacy shines.",
+                        lesson: "The 86th Amendment added Article 21A, making education a fundamental right. It also modified Article 45 to focus on early childhood care.",
+                        effect: { legacy: 35, integrity: 15 }
+                    },
+                    {
+                        text: "Oppose it, citing financial burden on states.",
+                        outcome: "The amendment fails. Many children remain out of school, and illiteracy persists. Your integrity drops.",
+                        lesson: "The Constitution directs the state to provide education. It's not just a cost but an investment in human capital.",
+                        effect: { legacy: -15, integrity: -20 }
+                    },
+                    {
+                        text: "Support it but with a phased implementation to ease the financial burden.",
+                        outcome: "Education becomes a right but implementation is slow. Some children still wait for schools.",
+                        lesson: "While phased approach is practical, the right to education is now recognized as crucial for other rights to be meaningful.",
+                        effect: { legacy: 15, integrity: 0 }
+                    }
+                ]
             },
             {
-                category: "Government Structure",
-                question: "What is the maximum strength of the Lok Sabha as per the Constitution?",
-                options: [
-                    "525 members",
-                    "545 members",
-                    "550 members",
-                    "552 members"
-                ],
-                correctAnswer: 3,
-                explanation: "Article 81 of the Constitution specifies that the Lok Sabha shall consist of not more than 552 members - 530 members to represent the States, 20 members to represent the Union Territories, and 2 members to be nominated by the President from the Anglo-Indian community.",
-                fact: "The 42nd Amendment in 1976 froze the representation of states in the Lok Sabha until the year 2001 at the 1971 census level. The 84th Amendment extended this freeze until 2026."
-            },
-            {
-                category: "Fundamental Rights",
-                question: "Which article guarantees protection against double jeopardy?",
-                options: [
-                    "Article 19",
-                    "Article 20",
-                    "Article 21",
-                    "Article 22"
-                ],
-                correctAnswer: 1,
-                explanation: "Article 20(2) states that 'No person shall be prosecuted and punished for the same offence more than once.' This is known as protection against double jeopardy.",
-                fact: "The principle of double jeopardy is also recognized in many other legal systems around the world, including the United States where it's enshrined in the Fifth Amendment."
-            },
-            {
-                category: "Directive Principles",
-                question: "Which article directs the State to provide free and compulsory education for children?",
-                options: [
-                    "Article 41",
-                    "Article 45",
-                    "Article 46",
-                    "Article 51A"
-                ],
-                correctAnswer: 1,
-                explanation: "Article 45 originally stated that the State shall endeavor to provide free and compulsory education for all children until they complete the age of fourteen years within ten years of the Constitution's commencement.",
-                fact: "In 2002, Article 21A was inserted via the 86th Amendment, making education a fundamental right for children aged 6-14 years. Article 45 was also amended to focus on early childhood care."
-            },
-            {
-                category: "Constitutional History",
-                question: "Who was the chairman of the Drafting Committee of the Indian Constitution?",
-                options: [
-                    "Jawaharlal Nehru",
-                    "Rajendra Prasad",
-                    "B.R. Ambedkar",
-                    "Sardar Patel"
-                ],
-                correctAnswer: 2,
-                explanation: "Dr. B.R. Ambedkar was the chairman of the Drafting Committee of the Indian Constitution. He is widely regarded as the chief architect of the Constitution and is referred to as the 'Father of the Indian Constitution.'",
-                fact: "The Drafting Committee had seven members. It took the committee 2 years, 11 months and 18 days to prepare the draft of the Constitution."
-            },
-            {
-                category: "Government Structure",
-                question: "Which article deals with the establishment of the Supreme Court of India?",
-                options: [
-                    "Article 124",
-                    "Article 131",
-                    "Article 143",
-                    "Article 148"
-                ],
-                correctAnswer: 0,
-                explanation: "Article 124 establishes the Supreme Court of India. It states that there shall be a Supreme Court of India consisting of a Chief Justice of India and, until Parliament by law prescribes a larger number, of not more than seven other Judges.",
-                fact: "The original Constitution provided for a Supreme Court with a Chief Justice and 7 puisne judges. Currently, the Supreme Court has a sanctioned strength of 34 judges including the Chief Justice of India."
+                year: "2019",
+                title: "The Citizenship Debate",
+                story: "The Citizenship Amendment Act (CAA) is passed, providing a path to citizenship for non-Muslim minorities from three neighboring countries. Protests erupt, citing violation of secularism. You are asked to mediate.",
+                choices: [
+                    {
+                        text: "Support the act, arguing it protects persecuted minorities.",
+                        outcome: "The act is implemented, but secularism is questioned. Minority communities feel anxious. Your decision divides the nation.",
+                        lesson: "Article 14 guarantees equality to all persons. Critics argue the act excludes Muslims, potentially violating equality. The debate continues in courts.",
+                        effect: { legacy: 10, integrity: -15 }
+                    },
+                    {
+                        text: "Oppose the act, stating it violates the secular character of the Constitution.",
+                        outcome: "You stand with protestors advocating secularism. The act faces legal challenges. Your integrity rises, but some see you as partisan.",
+                        lesson: "The Preamble declares India a secular nation. Equality before law (Article 14) applies to all, regardless of religion.",
+                        effect: { legacy: 20, integrity: 20 }
+                    },
+                    {
+                        text: "Call for a judicial review to test the act's constitutionality.",
+                        outcome: "The Supreme Court takes up the case. Meanwhile, you urge peaceful dialogue. Your balanced approach preserves both law and order.",
+                        lesson: "Judicial review (Article 13) allows courts to examine laws for constitutionality. It's a key feature of Indian democracy.",
+                        effect: { legacy: 25, integrity: 10 }
+                    }
+                ]
             }
         ];
 
-        // Additional facts for the sidebar
+        // Additional facts
         const constitutionFacts = [
-            "The Indian Constitution was drafted over a period of 2 years, 11 months and 18 days.",
-            "The concepts of Liberty, Equality and Fraternity in the Preamble were inspired by the French Revolution.",
-            "The Constitution of India has been amended 104 times as of January 2023.",
-            "The Preamble to the Indian Constitution was inspired by the Preamble to the Constitution of the United States.",
-            "The Indian Constitution establishes a parliamentary system of government with a President as the nominal head.",
-            "The Constitution provides for a single citizenship for the entire country, unlike the federal system of the United States.",
-            "The Constitution of India is often described as a 'bag of borrowings' as it has borrowed features from many countries.",
-            "The Constitution originally had 395 articles in 22 parts and 8 schedules. Now it has 448 articles in 25 parts and 12 schedules."
+            "The Constitution of India is the longest written constitution of any sovereign country.",
+            "The original Constitution had 395 articles in 22 parts and 8 schedules.",
+            "The concept of 'Directive Principles' was borrowed from the Irish Constitution.",
+            "Dr. B.R. Ambedkar chaired the Drafting Committee.",
+            "The Constitution was adopted on 26 November 1949 and came into effect on 26 January 1950.",
+            "The Preamble was amended in 1976 to add 'Socialist', 'Secular', and 'Integrity'.",
+            "Fundamental Rights can be suspended during a national emergency, except Articles 20 and 21.",
+            "The right to constitutional remedies (Article 32) is itself a fundamental right."
         ];
 
-        // Game state variables
-        let currentQuestionIndex = 0;
-        let score = 0;
-        let lives = 3;
-        let level = 1;
-        let selectedOption = null;
-        let categoryProgress = {
-            "Fundamental Rights": 0,
-            "Government Structure": 0,
-            "Directive Principles": 0,
-            "Constitutional History": 0
-        };
+        // Game state
+        let currentChapter = 0;
+        let legacy = 0;  // score based on historical impact
+        let integrity = 100;  // moral standing (can go negative)
+        let selectedChoice = null;
+        let completedChapters = new Array(storyChapters.length).fill(false);
         
         // DOM elements
         const startScreen = document.getElementById('start-screen');
-        const gamePlay = document.getElementById('game-play');
-        const feedbackScreen = document.getElementById('feedback-screen');
+        const storyScreen = document.getElementById('story-screen');
+        const outcomeScreen = document.getElementById('outcome-screen');
         const resultsScreen = document.getElementById('results-screen');
         
         const startBtn = document.getElementById('start-btn');
-        const submitBtn = document.getElementById('submit-btn');
-        const hintBtn = document.getElementById('hint-btn');
+        const makeChoiceBtn = document.getElementById('make-choice-btn');
+        const hintBtn = document.getElementById('council-hint-btn');
         
-        const scoreValue = document.getElementById('score-value');
-        const levelValue = document.getElementById('level-value');
-        const livesValue = document.getElementById('lives-value');
+        const legacyScoreEl = document.getElementById('legacy-score');
+        const integrityEl = document.getElementById('integrity-value');
+        const chapterNumberEl = document.getElementById('chapter-number');
+        const chapterBadge = document.getElementById('chapter-badge');
+        const chapterTitle = document.getElementById('chapter-title');
+        const storyText = document.getElementById('story-text');
+        const choicesContainer = document.getElementById('choices-container');
         
-        const questionNumber = document.getElementById('question-number');
-        const questionText = document.getElementById('question-text');
-        const optionsContainer = document.getElementById('options-container');
-        
-        const progressFill = document.getElementById('progress-fill');
-        const progressPercent = document.getElementById('progress-percent');
+        const legacyPercent = document.getElementById('legacy-percent');
+        const legacyFill = document.getElementById('legacy-fill');
         const factText = document.getElementById('fact-text');
         
-        // Initialize the game
+        // Initialize
         function initGame() {
-            currentQuestionIndex = 0;
-            score = 0;
-            lives = 3;
-            level = 1;
-            selectedOption = null;
-            
-            // Reset category progress
-            for (let category in categoryProgress) {
-                categoryProgress[category] = 0;
-            }
+            currentChapter = 0;
+            legacy = 0;
+            integrity = 100;
+            selectedChoice = null;
+            completedChapters.fill(false);
             
             updateStats();
-            updateProgress();
-            updateLearningTracker();
+            updateLegacyMeter();
             showRandomFact();
+            updateTimeline();
             
             // Set event listeners
-            startBtn.addEventListener('click', startGame);
-            submitBtn.addEventListener('click', submitAnswer);
+            startBtn.addEventListener('click', startJourney);
+            makeChoiceBtn.addEventListener('click', submitChoice);
             hintBtn.addEventListener('click', showHint);
-            
-            // Add keyboard navigation
-            document.addEventListener('keydown', handleKeyDown);
         }
         
-        // Start the game
-        function startGame() {
-            // Switch to game play screen
+        // Start the game (from prologue to first chapter)
+        function startJourney() {
             startScreen.classList.remove('active');
-            gamePlay.classList.add('active');
-            
-            // Load the first question
-            loadQuestion();
+            storyScreen.classList.add('active');
+            loadChapter(0);
         }
         
-        // Load the current question
-        function loadQuestion() {
-            const questionData = gameData[currentQuestionIndex];
+        // Load a chapter
+        function loadChapter(index) {
+            const chapter = storyChapters[index];
+            currentChapter = index;
             
-            // Update question number and text
-            questionNumber.textContent = `Question ${currentQuestionIndex + 1} of ${gameData.length}`;
-            questionText.textContent = questionData.question;
+            chapterNumberEl.textContent = index + 1;
+            chapterBadge.textContent = `${chapter.year} | ${chapter.title}`;
+            chapterTitle.textContent = chapter.title;
+            storyText.textContent = chapter.story;
             
-            // Clear previous options
-            optionsContainer.innerHTML = '';
+            // Clear previous choices
+            choicesContainer.innerHTML = '';
             
-            // Create option elements
-            const optionLetters = ['A', 'B', 'C', 'D'];
-            
-            questionData.options.forEach((option, index) => {
-                const optionElement = document.createElement('div');
-                optionElement.className = 'option';
-                optionElement.dataset.index = index;
-                optionElement.tabIndex = 0; // Make options focusable
+            // Create choice elements
+            const choiceLetters = ['A', 'B', 'C'];
+            chapter.choices.forEach((choice, i) => {
+                const choiceEl = document.createElement('div');
+                choiceEl.className = 'choice';
+                choiceEl.dataset.index = i;
+                choiceEl.tabIndex = 0;
                 
-                optionElement.innerHTML = `
-                    <div class="option-letter">${optionLetters[index]}</div>
-                    <div class="option-text">${option}</div>
+                choiceEl.innerHTML = `
+                    <div class="choice-letter">${choiceLetters[i]}</div>
+                    <div class="choice-text">${choice.text}</div>
                 `;
                 
-                optionElement.addEventListener('click', () => selectOption(optionElement, index));
-                optionElement.addEventListener('keydown', (e) => {
+                choiceEl.addEventListener('click', () => selectChoice(choiceEl, i));
+                choiceEl.addEventListener('keydown', (e) => {
                     if (e.key === 'Enter' || e.key === ' ') {
-                        selectOption(optionElement, index);
+                        selectChoice(choiceEl, i);
                     }
                 });
-                optionsContainer.appendChild(optionElement);
+                choicesContainer.appendChild(choiceEl);
             });
             
-            // Reset selected option and submit button
-            selectedOption = null;
-            submitBtn.disabled = true;
+            // Reset selection
+            selectedChoice = null;
+            makeChoiceBtn.disabled = true;
+            
+            // Mark timeline current
+            updateTimeline();
         }
         
-        // Select an option
-        function selectOption(optionElement, index) {
-            // Remove selection from all options
-            document.querySelectorAll('.option').forEach(opt => {
-                opt.classList.remove('selected');
-            });
-            
-            // Add selection to clicked option
-            optionElement.classList.add('selected');
-            selectedOption = index;
-            submitBtn.disabled = false;
+        // Select a choice
+        function selectChoice(choiceEl, index) {
+            document.querySelectorAll('.choice').forEach(ch => ch.classList.remove('selected'));
+            choiceEl.classList.add('selected');
+            selectedChoice = index;
+            makeChoiceBtn.disabled = false;
         }
         
-        // Submit answer
-        function submitAnswer() {
-            if (selectedOption === null) return;
+        // Submit choice and show outcome
+        function submitChoice() {
+            if (selectedChoice === null) return;
             
-            const questionData = gameData[currentQuestionIndex];
-            const isCorrect = selectedOption === questionData.correctAnswer;
+            const chapter = storyChapters[currentChapter];
+            const choice = chapter.choices[selectedChoice];
             
-            // Update category progress
-            categoryProgress[questionData.category]++;
+            // Apply effects
+            legacy += choice.effect.legacy;
+            integrity += choice.effect.integrity;
+            // Ensure integrity doesn't go below 0 or above 100? But it's not bounded in story, just visual.
             
-            // Show feedback screen
-            showFeedback(isCorrect, questionData);
-        }
-        
-        // Show feedback
-        function showFeedback(isCorrect, questionData) {
-            // Switch to feedback screen
-            gamePlay.classList.remove('active');
-            feedbackScreen.classList.add('active');
+            // Mark chapter completed
+            completedChapters[currentChapter] = true;
             
-            // Update feedback content based on correctness
-            const feedbackIcon = isCorrect ? 
-                '<i class="fas fa-check-circle feedback-icon"></i>' : 
-                '<i class="fas fa-times-circle feedback-icon"></i>';
+            // Show outcome screen
+            storyScreen.classList.remove('active');
+            outcomeScreen.classList.add('active');
             
-            const feedbackTitle = isCorrect ? 
-                'Correct Answer!' : 
-                'Incorrect Answer';
+            // Determine outcome class
+            const outcomeClass = choice.effect.legacy > 20 ? 'positive-outcome' : 
+                                 (choice.effect.legacy < 0 ? 'negative-outcome' : '');
             
-            const correctAnswerText = questionData.options[questionData.correctAnswer];
-            
-            feedbackScreen.innerHTML = `
-                <div class="${isCorrect ? 'correct-answer' : 'incorrect-answer'}">
-                    ${feedbackIcon}
-                    <h2 class="feedback-title">${feedbackTitle}</h2>
-                    <div class="explanation">
-                        <p><span class="highlight">Explanation:</span> ${questionData.explanation}</p>
-                        ${!isCorrect ? `<p><span class="highlight">Correct Answer:</span> ${correctAnswerText}</p>` : ''}
+            outcomeScreen.innerHTML = `
+                <div class="${outcomeClass}">
+                    <div class="outcome-icon">
+                        <i class="fas ${choice.effect.legacy > 20 ? 'fa-star' : (choice.effect.legacy < 0 ? 'fa-exclamation-triangle' : 'fa-balance-scale')}"></i>
                     </div>
-                    <button class="btn" id="next-btn">
-                        <i class="fas fa-arrow-right"></i> ${currentQuestionIndex < gameData.length - 1 ? 'Next Question' : 'See Results'}
+                    <h2 class="outcome-title">${choice.effect.legacy > 20 ? 'Constitution Upheld' : (choice.effect.legacy < 0 ? 'Constitution Weakened' : 'A Nuanced Outcome')}</h2>
+                    <div class="constitutional-lesson">
+                        <div class="lesson-label"><i class="fas fa-scroll"></i> Historical Consequence</div>
+                        <p>${choice.outcome}</p>
+                        <div class="lesson-label" style="margin-top:15px;"><i class="fas fa-gavel"></i> Constitutional Lesson</div>
+                        <p>${choice.lesson}</p>
+                    </div>
+                    <button class="btn" id="continue-btn">
+                        <i class="fas fa-arrow-right"></i> ${currentChapter < storyChapters.length - 1 ? 'Continue Journey' : 'See Epilogue'}
                     </button>
                 </div>
             `;
             
-            // Update score and lives
-            if (isCorrect) {
-                score += 100;
-                // Level up every 3 correct answers
-                if (score % 300 === 0 && level < 5) {
-                    level++;
-                }
-            } else {
-                lives--;
-            }
-            
+            // Update stats and legacy meter
             updateStats();
-            updateProgress();
-            updateLearningTracker();
+            updateLegacyMeter();
+            updateTimeline();
             
-            // Add event listener to next button
-            document.getElementById('next-btn').addEventListener('click', nextQuestion);
+            // Add event to continue button
+            document.getElementById('continue-btn').addEventListener('click', continueJourney);
         }
         
-        // Show hint
-        function showHint() {
-            const questionData = gameData[currentQuestionIndex];
-            alert(`Hint: ${questionData.fact}`);
+        // Continue to next chapter or results
+        function continueJourney() {
+            outcomeScreen.classList.remove('active');
             
-            // Deduct points for using hint
-            score = Math.max(0, score - 25);
-            updateStats();
-        }
-        
-        // Go to next question or show results
-        function nextQuestion() {
-            currentQuestionIndex++;
-            
-            if (currentQuestionIndex < gameData.length && lives > 0) {
-                // Load next question
-                feedbackScreen.classList.remove('active');
-                gamePlay.classList.add('active');
-                loadQuestion();
+            if (currentChapter < storyChapters.length - 1) {
+                // Next chapter
+                storyScreen.classList.add('active');
+                loadChapter(currentChapter + 1);
             } else {
-                // Show results screen
-                showResults();
+                // Show epilogue (results)
+                showEpilogue();
             }
         }
         
-        // Show results screen
-        function showResults() {
-            feedbackScreen.classList.remove('active');
+        // Show epilogue
+        function showEpilogue() {
             resultsScreen.classList.add('active');
             
-            const percentage = Math.round((score / (gameData.length * 100)) * 100);
-            let badge = "Constitution Novice";
-            
-            if (percentage >= 80) {
-                badge = "Constitution Scholar";
-            } else if (percentage >= 60) {
-                badge = "Constitution Enthusiast";
-            } else if (percentage >= 40) {
-                badge = "Constitution Learner";
+            // Determine ending based on legacy and integrity
+            let ending = "";
+            let badge = "";
+            if (legacy >= 150 && integrity >= 100) {
+                ending = "You have become a legendary Constitution Keeper. The timeline is restored, and India's constitutional values shine brighter than ever. The Time Council honors you with the 'Guardian of Dharma' award.";
+                badge = "Guardian of Dharma";
+            } else if (legacy >= 100 && integrity >= 70) {
+                ending = "Your journey was successful. India remains a vibrant democracy, though some shadows linger. You are remembered as a wise Keeper.";
+                badge = "Wise Keeper";
+            } else if (legacy >= 50 || integrity >= 50) {
+                ending = "The timeline is stable, but your choices were sometimes cautious. The Constitution survives, but its full potential remains untapped. You did your duty, if not more.";
+                badge = "Dutiful Keeper";
+            } else {
+                ending = "The timeline is fractured. Authoritarianism and inequality rise. The Constitution you tried to protect is a shadow of its former self. The Time Council mourns your failure.";
+                badge = "Failed Keeper";
             }
             
             resultsScreen.innerHTML = `
-                <i class="fas fa-trophy results-icon"></i>
-                <div class="score-display">${score}</div>
-                <div class="score-text">You scored ${percentage}% on Constitution Knowledge</div>
-                <div class="constitution-badge">${badge}</div>
-                <p>You completed questions from all major constitutional categories. Keep learning about the Indian Constitution!</p>
-                <div style="margin-top: 30px;">
-                    <button class="btn" id="restart-btn">
-                        <i class="fas fa-redo"></i> Play Again
-                    </button>
+                <i class="fas fa-hourglass-end results-icon"></i>
+                <div class="score-display">${legacy}</div>
+                <div class="score-text">Legacy Score</div>
+                <div class="badge">${badge}</div>
+                <div class="story-epilogue">
+                    <p><strong>Epilogue:</strong> ${ending}</p>
                 </div>
+                <button class="btn" id="restart-btn">
+                    <i class="fas fa-redo-alt"></i> Begin Anew
+                </button>
             `;
             
-            // Add event listener to restart button
             document.getElementById('restart-btn').addEventListener('click', restartGame);
         }
         
-        // Restart the game
+        // Restart game
         function restartGame() {
             resultsScreen.classList.remove('active');
             startScreen.classList.add('active');
             initGame();
         }
         
-        // Update game stats
+        // Show hint (random constitutional fact)
+        function showHint() {
+            const randomFact = constitutionFacts[Math.floor(Math.random() * constitutionFacts.length)];
+            alert("📜 Time Council Advice:\n" + randomFact);
+            // Minor cost: reduce integrity slightly for using external help
+            integrity = Math.max(0, integrity - 5);
+            updateStats();
+        }
+        
+        // Update stats display
         function updateStats() {
-            scoreValue.textContent = score;
-            levelValue.textContent = level;
-            livesValue.textContent = lives;
+            legacyScoreEl.textContent = legacy;
+            integrityEl.textContent = integrity;
         }
         
-        // Update progress bar
-        function updateProgress() {
-            const progress = ((currentQuestionIndex) / gameData.length) * 100;
-            progressFill.style.width = `${progress}%`;
-            progressPercent.textContent = `${Math.round(progress)}%`;
+        // Update legacy meter
+        function updateLegacyMeter() {
+            // Max legacy possible from chapters: sum of max legacy per chapter (approx 35 each * 6 = 210)
+            const maxLegacy = 210; // rough max
+            const percent = Math.min(100, Math.round((legacy / maxLegacy) * 100));
+            legacyFill.style.width = percent + '%';
+            legacyPercent.textContent = percent + '%';
         }
         
-        // Update learning tracker
-        function updateLearningTracker() {
-            document.getElementById('tracker-rights').textContent = 
-                `${categoryProgress["Fundamental Rights"]}/5`;
-            document.getElementById('tracker-govt').textContent = 
-                `${categoryProgress["Government Structure"]}/3`;
-            document.getElementById('tracker-principles').textContent = 
-                `${categoryProgress["Directive Principles"]}/4`;
-            document.getElementById('tracker-history').textContent = 
-                `${categoryProgress["Constitutional History"]}/3`;
+        // Update timeline dots
+        function updateTimeline() {
+            for (let i = 0; i < storyChapters.length; i++) {
+                const dot = document.getElementById(`dot-${i}`);
+                if (dot) {
+                    dot.classList.remove('completed', 'current');
+                    if (completedChapters[i]) {
+                        dot.classList.add('completed');
+                    } else if (i === currentChapter && storyScreen.classList.contains('active')) {
+                        dot.classList.add('current');
+                    }
+                }
+            }
         }
         
         // Show random fact in sidebar
         function showRandomFact() {
             const randomIndex = Math.floor(Math.random() * constitutionFacts.length);
             factText.textContent = constitutionFacts[randomIndex];
-            
-            // Change fact every 10 seconds
-            setTimeout(showRandomFact, 10000);
+            setTimeout(showRandomFact, 15000);
         }
         
-        // Handle keyboard navigation
+        // Keyboard navigation
         function handleKeyDown(e) {
-            // If on game play screen
-            if (gamePlay.classList.contains('active')) {
-                // Number keys 1-4 for answer selection
-                if (e.key >= '1' && e.key <= '4') {
+            if (storyScreen.classList.contains('active')) {
+                if (e.key >= '1' && e.key <= '3') {
                     const index = parseInt(e.key) - 1;
-                    const options = document.querySelectorAll('.option');
-                    if (options[index]) {
-                        selectOption(options[index], index);
+                    const choices = document.querySelectorAll('.choice');
+                    if (choices[index]) {
+                        selectChoice(choices[index], index);
                     }
-                }
-                // Enter to submit
-                else if (e.key === 'Enter' && !submitBtn.disabled) {
-                    submitAnswer();
-                }
-                // H for hint
-                else if (e.key === 'h' || e.key === 'H') {
+                } else if (e.key === 'Enter' && !makeChoiceBtn.disabled) {
+                    submitChoice();
+                } else if (e.key === 'h' || e.key === 'H') {
                     showHint();
                 }
-            }
-            // If on feedback screen
-            else if (feedbackScreen.classList.contains('active')) {
-                // Enter to proceed
+            } else if (outcomeScreen.classList.contains('active')) {
                 if (e.key === 'Enter') {
-                    document.getElementById('next-btn')?.click();
+                    document.getElementById('continue-btn')?.click();
                 }
-            }
-            // If on results screen
-            else if (resultsScreen.classList.contains('active')) {
-                // Enter to restart
+            } else if (resultsScreen.classList.contains('active')) {
                 if (e.key === 'Enter') {
                     document.getElementById('restart-btn')?.click();
                 }
-            }
-            // If on start screen
-            else if (startScreen.classList.contains('active')) {
-                // Enter to start
+            } else if (startScreen.classList.contains('active')) {
                 if (e.key === 'Enter') {
                     startBtn.click();
                 }
             }
         }
         
-        // Initialize the game when page loads
+        document.addEventListener('keydown', handleKeyDown);
+        
+        // Start
         window.addEventListener('DOMContentLoaded', initGame);
     </script>
 </body>
